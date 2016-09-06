@@ -1,0 +1,148 @@
+:root {
+  --bg-main: #303030;
+
+  --title-color: #f8e811;
+  --text-color: #eeeeee;
+
+  --link-color: #5511ee;
+  --link-hover-color: #eeeeee;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+html {
+  background-color: var(--bg-main);
+  width: 100%;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 3.5vmin;
+  color: var(--text-color);
+
+  background-image: url("./rail_logo_transparent.png");
+  background-size: cover;
+
+  min-height: 100vh;
+}
+
+ul.list-style-none {
+  list-style: none;
+}
+
+ul.list-style-none li {
+  display: inline-block;
+}
+
+.button {
+  font-size: 4vmin;
+  background: #e81;
+  padding: 0.5vmin;
+  border-radius: 5%;
+}
+
+.button:hover {
+  background: #303030;
+  color: #eee;
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+
+  margin-top: 33vmin;
+
+  height: 77vmin;
+}
+
+.title .button {
+  top: 5vmin;
+}
+
+.title p {
+  color: var(--title-color);
+  font-size: 7vmin;
+}
+
+.title ul {
+    margin: 6vmin 0;
+}
+
+.title a {
+  margin-left: 2vmin;
+  margin-right: 2vmin;
+  font-size: 6vmin;
+}
+
+.title a:link, .title a:visited {
+  color: var(--link-color);
+}
+
+.title a:hover {
+  color: var(--link-hover-color);
+}
+
+.content {
+  width: 80%;
+  display: block;
+  margin: 2vmin auto;
+}
+
+/******************  Fade Stuff  ********************/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.fade-in-slow {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-delay: 0.9s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.fade-in-slower {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-delay: 1.9s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.fade-pause {
+  animation-play-state: paused;
+}

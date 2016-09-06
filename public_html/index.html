@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta lang="en-us">
+  <meta charset="utf-8">
+  <title>RAIL</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+  <script src="https://use.fontawesome.com/8f34127361.js"></script>
+
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+<div class="title noselect">
+  <p class="fade-in">Rensselaer</p>
+  <p class="fade-in">Artificial Intelligence League</p>
+
+  <ul class="list-style-none fade-in-slow">
+    <li><a href="https://www.facebook.com/RenAILeague/" target="_blank">
+      <i class="fa fa-facebook" aria-hidden="true"></i>
+    </a></li>
+
+    <li><a href="https://github.com/Rensselaer-AI-League" target="_blank">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a></li>
+
+    <li><a href="http://rpi-ai.slack.com" target="_blank">
+      <i class="fa fa-slack" aria-hidden="true"></i>
+    </a></li>
+
+    <li><a href="constitution.html" target="_blank">
+      <i class="fa fa-file-text" aria-hidden="true"></i>
+    </a></li>
+  </ul>
+
+  <button class="button fade-in-slower" id="scroll-1">Learn More</button>
+</div>
+
+<div class="content fade-in fade-pause" id="content-1">
+  <p>RAIL is an organization devoted to artificial intelligence.</p>
+</div>
+
+<script>
+// Fancy professional web designer
+// You could do this with jquery, but it would be worse in every way
+window.onscroll = (function () {
+  // You also need to make things fade in, so they know you're legit
+  var els = document.getElementsByClassName("fade-in");
+  for (var i = 0; i < els.length; i++) {
+    var el_top = els[i].getBoundingClientRect().top;
+    var win_bot = window.innerHeight;
+
+    if (win_bot >= el_top) {
+      if (els[i].classList.contains('fade-pause')){
+        els[i].classList.remove('fade-pause');
+      }
+    }
+  }
+});
+
+// Scroll to text
+function smoothScroll(id) {
+  // Start at the screen's current y position
+  var start = document.body.scrollTop;
+
+  // This is where we're scrolling
+  var el = document.getElementById(id);
+
+  // Figure out where to stop
+  var stop = el.offsetTop;
+  var crawl = el;
+  while (crawl.offsetParent && crawl.offsetParent != document.body){
+    crawl = crawl.offsetParent;
+    stop += crawl.offsetTop;
+  }
+
+  // Small distances, just jump there
+  var distance = Math.abs(start - stop);
+  if (distance < 100) {
+      scrollTo(0, stop);
+  return;
+  }
+
+  // This makes it smooth
+  var speed = 10;
+    var inc = Math.round(distance / speed); // velocity
+    if (inc >= 20){
+    inc = 20; // Don't let the scroll get choppy
+  }
+
+  var dx = Math.round(distance / 25);
+  var pos = stop > start ? start + dx : start - dx;
+  var timer = 0;
+
+  if (stop > start) {
+    for (var i = start; i < stop; i += dx) {
+      timer += 1;
+      setTimeout("window.scrollTo(0, " + pos + ")", timer * inc);
+      pos += dx;
+      if (pos > stop) {
+        pos = stop; timer++;
+      }
+    }
+  } else {
+    for (var i = start; i > stop; i -= dx) {
+      timer += 1;
+          setTimeout("window.scrollTo(0, " + pos + ")", timer * v);
+          pos -= dx;
+      if (pos < stop) {
+        pos = stop; timer++;
+      }
+    }
+  }
+}
+
+var scroll_1 = document.getElementById("scroll-1");
+scroll_1.onclick = (function () {
+  smoothScroll("content-1");
+});
+
+var scroll_2 = document.getElementById("gen");
+scroll_2.onclick = (function () {
+  //smoothScroll("random-text");
+  newText();
+});
+</script>
+</body>
+
+</html>
